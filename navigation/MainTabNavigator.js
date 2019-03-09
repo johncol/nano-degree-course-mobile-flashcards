@@ -16,6 +16,7 @@ const DecksStack = createStackNavigator({
   [RouteNames.NewCard]: NewCardScreen,
   [RouteNames.Quiz]: QuizScreen
 });
+
 DecksStack.navigationOptions = {
   tabBarLabel: 'Decks',
   tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />
@@ -24,6 +25,7 @@ DecksStack.navigationOptions = {
 const NewDeckStack = createStackNavigator({
   [RouteNames.NewDeck]: NewDeckScreen
 });
+
 NewDeckStack.navigationOptions = {
   tabBarLabel: 'New Deck',
   tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-add" />

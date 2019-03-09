@@ -6,8 +6,8 @@ import DeleteAllDecksButton from './../components/DeleteAllDecksButton';
 import AddNewDeckButton from './../components/AddNewDeckButton';
 import ScreenInfo from './../components/ScreenInfo';
 import ScreenTitle from './../components/ScreenTitle';
-import ScreenContainer from '../components/ScreenContainer';
-import ScreenContent from '../components/ScreenContent';
+import ScreenContainer from './../components/ScreenContainer';
+import ScreenContent from './../components/ScreenContent';
 
 class DecksScreen extends React.Component {
   static navigationOptions = {
@@ -20,7 +20,6 @@ class DecksScreen extends React.Component {
       <ScreenContainer>
         <ScreenContent>
           <DeckList />
-
           <AddNewDeckButton />
           <DeleteAllDecksButton />
         </ScreenContent>

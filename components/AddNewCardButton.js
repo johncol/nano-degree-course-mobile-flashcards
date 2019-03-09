@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-elements';
-import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
 
 import Navigator from './../navigation/navigator';

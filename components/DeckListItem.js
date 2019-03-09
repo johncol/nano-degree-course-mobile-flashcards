@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ListItem } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 
-import Navigator from '../navigation/navigator';
+import Navigator from './../navigation/navigator';
 
 class DeckListItem extends Component {
   navigateToDeckScreen = () => {

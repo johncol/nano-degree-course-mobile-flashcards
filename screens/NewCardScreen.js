@@ -1,10 +1,10 @@
 import React from 'react';
 
-import NewCardForm from '../components/NewCardForm';
-import ScreenTitle from '../components/ScreenTitle';
-import ScreenInfo from '../components/ScreenInfo';
-import ScreenContainer from '../components/ScreenContainer';
-import ScreenContent from '../components/ScreenContent';
+import NewCardForm from './../components/NewCardForm';
+import ScreenTitle from './../components/ScreenTitle';
+import ScreenInfo from './../components/ScreenInfo';
+import ScreenContainer from './../components/ScreenContainer';
+import ScreenContent from './../components/ScreenContent';
 
 export default class NewCardScreen extends React.Component {
   static navigationOptions = {

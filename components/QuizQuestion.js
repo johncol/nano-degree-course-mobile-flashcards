@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { withNavigation } from 'react-navigation';
 
 import ButtonsContainer from './ButtonsContainer';
 import QuizButtonsContainer from './QuizButtonsContainer';
@@ -82,11 +81,4 @@ const stateToProps = (state, props) => {
   };
 };
 
-const dispatchToProps = dispatch => ({});
-
-export default withNavigation(
-  connect(
-    stateToProps,
-    dispatchToProps
-  )(QuizQuestion)
-);
+export default connect(stateToProps)(QuizQuestion);

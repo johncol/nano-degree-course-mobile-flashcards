@@ -1,10 +1,10 @@
 import React from 'react';
 
-import NewDeckForm from '../components/NewDeckForm';
-import ScreenTitle from '../components/ScreenTitle';
-import ScreenInfo from '../components/ScreenInfo';
-import ScreenContainer from '../components/ScreenContainer';
-import ScreenContent from '../components/ScreenContent';
+import NewDeckForm from './../components/NewDeckForm';
+import ScreenTitle from './../components/ScreenTitle';
+import ScreenInfo from './../components/ScreenInfo';
+import ScreenContainer from './../components/ScreenContainer';
+import ScreenContent from './../components/ScreenContent';
 
 export default class NewDeckScreen extends React.Component {
   static navigationOptions = {

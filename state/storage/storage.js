@@ -46,7 +46,7 @@ const Storage = {
   createDeck: name => {
     const deck = {
       id: Date.now(),
-      creationDate: new Date().toLocaleString(),
+      creationDate: new Date().toLocaleDateString(),
       cards: [],
       name
     };

@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import { Provider, connect } from 'react-redux';
 
 import AppNavigator from './navigation/AppNavigator';
-import AppLoading from './components/AppLoading';
 
 import { SharedAction } from './state/actions/shared';
 import store from './state/store';
@@ -14,15 +13,11 @@ export default class App extends React.Component {
   };
 
   render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
-      return <AppLoading handleFinishLoading={this.handleFinishLoading} />;
-    } else {
-      return (
-        <Provider store={store}>
-          <ConnectedApp />
-        </Provider>
-      );
-    }
+    return (
+      <Provider store={store}>
+        <ConnectedApp />
+      </Provider>
+    );
   }
 
   handleFinishLoading = () => {

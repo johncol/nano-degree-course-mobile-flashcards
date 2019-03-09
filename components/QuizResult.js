@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { Button } from 'react-native-elements';
 
 import ButtonsContainer from './ButtonsContainer';
 import QuizScore from './QuizScore';
-import Navigator from '../navigation/navigator';
+import Navigator from './../navigation/navigator';
 
 class QuizResult extends React.Component {
   goToDeck = () => {
@@ -15,7 +15,7 @@ class QuizResult extends React.Component {
   render() {
     const { score, cardsCount, onRestart: restartQuiz } = this.props;
     return (
-      <View style={styles.container}>
+      <View>
         <QuizScore score={score} total={cardsCount} />
 
         <ButtonsContainer height={100}>
@@ -26,9 +26,5 @@ class QuizResult extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {}
-});
 
 export default withNavigation(QuizResult);
