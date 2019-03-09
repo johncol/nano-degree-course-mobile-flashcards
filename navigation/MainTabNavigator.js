@@ -8,6 +8,8 @@ import SettingsScreen from '../screens/SettingsScreen';
 import DecksScreen from '../screens/DecksScreen';
 import NewDeckScreen from '../screens/NewDeckScreen';
 
+import { RouteNames } from './../navigation/routes';
+
 const HomeStack = createStackNavigator({
   Home: HomeScreen
 });
@@ -35,7 +37,7 @@ SettingsStack.navigationOptions = {
 };
 
 const DecksStack = createStackNavigator({
-  Decks: DecksScreen
+  [RouteNames.Decks]: DecksScreen
 });
 DecksStack.navigationOptions = {
   tabBarLabel: 'Decks',
@@ -43,7 +45,7 @@ DecksStack.navigationOptions = {
 };
 
 const NewDeckStack = createStackNavigator({
-  Decks: NewDeckScreen
+  [RouteNames.NewDeck]: NewDeckScreen
 });
 NewDeckStack.navigationOptions = {
   tabBarLabel: 'New Deck',
@@ -52,6 +54,5 @@ NewDeckStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   DecksStack,
-  NewDeckStack,
-  LinksStack
+  NewDeckStack
 });
