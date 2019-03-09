@@ -1,4 +1,4 @@
-import { DeckActionType } from '../actions/action-types';
+import { DeckActionType, SharedActionType } from '../actions/action-types';
 
 const deckReducer = (state = {}, action) => {
   switch (action.type) {
@@ -13,6 +13,9 @@ const deckReducer = (state = {}, action) => {
 
     case DeckActionType.UPDATE_DECK:
       return updateDeck(state, action);
+
+    case SharedActionType.LOAD_STORAGE_DATA:
+      return loadInitialDecks(state, action);
 
     default:
       return state;
@@ -30,7 +33,7 @@ const createDeck = (state, action) => {
 const addCardToDeck = (state, action) => {
   const { deckId, cardId } = action.payload;
   const deck = { ...state[deckId] };
-  deck.cards.push(cardId);
+  deck.decks.push(cardId);
 
   return {
     ...state,
@@ -59,6 +62,13 @@ const updateDeck = (state, action) => {
     ...state,
     [deckId]: updatedDeck
   };
+};
+
+const loadInitialDecks = (state, action) => {
+  const { decks } = action.payload;
+  const initialState = {};
+  decks.forEach(deck => (initialState[deck.id] = deck));
+  return initialState;
 };
 
 export default deckReducer;

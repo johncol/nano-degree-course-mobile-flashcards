@@ -1,4 +1,4 @@
-import { CardActionType } from '../actions/action-types';
+import { CardActionType, SharedActionType } from '../actions/action-types';
 
 const cardReducer = (state = {}, action) => {
   switch (action.type) {
@@ -10,6 +10,9 @@ const cardReducer = (state = {}, action) => {
 
     case CardActionType.UPDATE_CARD:
       return updateCard(state, action);
+
+    case SharedActionType.LOAD_STORAGE_DATA:
+      return loadInitialCards(state, action);
 
     default:
       return state;
@@ -46,6 +49,13 @@ const updateCard = (state, action) => {
     ...state,
     [cardId]: updatedCard
   };
+};
+
+const loadInitialCards = (state, action) => {
+  const { cards } = action.payload;
+  const initialState = {};
+  cards.forEach(card => (initialState[card.id] = card));
+  return initialState;
 };
 
 export default cardReducer;
