@@ -13,6 +13,10 @@ const initEntityListIfRequired = storageKey => {
   });
 };
 
+const deleteAllItems = storageKey => {
+  return AsyncStorage.setItem(storageKey, JSON.stringify([]));
+};
+
 const save = (storageKey, entity) => {
   return AsyncStorage.getItem(storageKey)
     .then(JSON.parse)
@@ -73,6 +77,10 @@ const Storage = {
     const decks = AsyncStorage.getItem(DECKS_KEY).then(JSON.parse);
     const cards = AsyncStorage.getItem(CARDS_KEY).then(JSON.parse);
     return Promise.all([decks, cards]);
+  },
+
+  deleteAllDecks: () => {
+    return deleteAllItems(DECKS_KEY);
   }
 };
 

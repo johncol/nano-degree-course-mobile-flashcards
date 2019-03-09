@@ -14,6 +14,9 @@ const deckReducer = (state = {}, action) => {
     case DeckActionType.UPDATE_DECK:
       return updateDeck(state, action);
 
+    case DeckActionType.REMOVE_ALL_DECKS:
+      return deleteAllDecks(state, action);
+
     case SharedActionType.LOAD_STORAGE_DATA:
       return loadInitialDecks(state, action);
 
@@ -62,6 +65,10 @@ const updateDeck = (state, action) => {
     ...state,
     [deckId]: updatedDeck
   };
+};
+
+const deleteAllDecks = (state, action) => {
+  return {};
 };
 
 const loadInitialDecks = (state, action) => {

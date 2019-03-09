@@ -2,7 +2,8 @@ export const DeckActionType = {
   CREATE_DECK: 'CREATE_DECK',
   DELETE_DECK: 'DELETE_DECK',
   UPDATE_DECK: 'UPDATE_DECK',
-  ADD_CARD_TO_DECK: 'ADD_CARD_TO_DECK'
+  ADD_CARD_TO_DECK: 'ADD_CARD_TO_DECK',
+  REMOVE_ALL_DECKS: 'REMOVE_ALL_DECKS'
 };
 
 export const CardActionType = {

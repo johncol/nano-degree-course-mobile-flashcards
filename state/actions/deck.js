@@ -30,6 +30,10 @@ const DeckActionCreator = {
       deckId,
       name
     }
+  }),
+
+  deleteAllDecks: () => ({
+    type: DeckActionType.REMOVE_ALL_DECKS
   })
 };
 
@@ -45,7 +49,14 @@ const addCardToDeck = (deckId, cardId) => dispatch => {
   });
 };
 
+const deleteAllDecks = () => dispatch => {
+  return Storage.deleteAllDecks().then(() => {
+    dispatch(DeckActionCreator.deleteAllDecks());
+  });
+};
+
 export const DeckAction = {
   createDeck,
-  addCardToDeck
+  addCardToDeck,
+  deleteAllDecks
 };
