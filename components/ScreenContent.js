@@ -1,8 +1,12 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView } from 'react-native';
 
 const ScreenContent = ({ children }) => {
-  return <View style={styles.container}>{children}</View>;
+  return (
+    <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+      {children}
+    </KeyboardAvoidingView>
+  );
 };
 
 const styles = StyleSheet.create({
