@@ -80,7 +80,11 @@ const Storage = {
   },
 
   deleteAllDecks: () => {
-    return Promise.all([deleteAllItems(DECKS_KEY), deleteAllItems(CARDS_KEY)]);
+    return deleteAllItems(DECKS_KEY);
+  },
+
+  deleteAllCards: () => {
+    return deleteAllItems(CARDS_KEY);
   }
 };
 

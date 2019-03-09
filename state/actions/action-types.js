@@ -9,7 +9,8 @@ export const DeckActionType = {
 export const CardActionType = {
   CREATE_CARD: 'CREATE_CARD',
   DELETE_CARD: 'DELETE_CARD',
-  UPDATE_CARD: 'UPDATE_CARD'
+  UPDATE_CARD: 'UPDATE_CARD',
+  REMOVE_ALL_CARDS: 'REMOVE_ALL_CARDS'
 };
 
 export const SharedActionType = {

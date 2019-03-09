@@ -24,16 +24,30 @@ const CardActionCreator = {
       question,
       answer
     }
+  }),
+
+  deleteAllCards: () => ({
+    type: CardActionType.REMOVE_ALL_CARDS
   })
 };
 
 const createCard = (deck, question, answer) => dispatch => {
+  if (!question.endsWith('?')) {
+    question = question + '?';
+  }
   return Storage.createCard(question, answer).then(card => {
     dispatch(CardActionCreator.createCard(card));
     dispatch(DeckAction.addCardToDeck(deck.id, card.id));
   });
 };
 
+const deleteAllCards = () => dispatch => {
+  return Storage.deleteAllCards().then(() => {
+    dispatch(CardActionCreator.deleteAllCards());
+  });
+};
+
 export const CardAction = {
-  createCard
+  createCard,
+  deleteAllCards
 };

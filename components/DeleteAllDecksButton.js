@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 
 import { DeckAction } from '../state/actions/deck';
+import { CardAction } from '../state/actions/card';
 
 class DeleteAllDecksButton extends Component {
   render() {
@@ -34,6 +35,7 @@ const stateToProps = state => ({
 const dispatchToProps = dispatch => ({
   deleteAllDecks: () => {
     dispatch(DeckAction.deleteAllDecks());
+    dispatch(CardAction.deleteAllCards());
   }
 });
 

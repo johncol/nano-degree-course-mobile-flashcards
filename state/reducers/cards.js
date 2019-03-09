@@ -11,6 +11,9 @@ const cardReducer = (state = {}, action) => {
     case CardActionType.UPDATE_CARD:
       return updateCard(state, action);
 
+    case CardActionType.REMOVE_ALL_CARDS:
+      return deleteAllCards(state, action);
+
     case SharedActionType.LOAD_STORAGE_DATA:
       return loadInitialCards(state, action);
 
@@ -49,6 +52,10 @@ const updateCard = (state, action) => {
     ...state,
     [cardId]: updatedCard
   };
+};
+
+const deleteAllCards = (state, action) => {
+  return {};
 };
 
 const loadInitialCards = (state, action) => {
