@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withNavigation } from 'react-navigation';
 
 import ScreenInfo from './../components/ScreenInfo';
 import ScreenTitle from './../components/ScreenTitle';
@@ -43,4 +42,4 @@ const stateToProps = (state, props) => {
   };
 };
 
-export default connect(stateToProps)(withNavigation(DeckScreen));
+export default connect(stateToProps)(DeckScreen);
