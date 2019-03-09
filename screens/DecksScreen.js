@@ -1,38 +1,34 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { connect } from 'react-redux';
 
-import RobotIcon from '../components/RobotIcon';
-import ScreenTitle from '../components/ScreenTitle';
-import ScreenInfo from '../components/ScreenInfo';
+import DeckList from './../components/DeckList';
+import ScreenInfo from './../components/ScreenInfo';
+import ScreenTitle from './../components/ScreenTitle';
+import ScreenContainer from '../components/ScreenContainer';
+import ScreenContent from '../components/ScreenContent';
 
-export default class DecksScreen extends React.Component {
+class DecksScreen extends React.Component {
   static navigationOptions = {
-    header: null
+    header: <ScreenTitle>Decks</ScreenTitle>
   };
 
   render() {
+    const { decksCount } = this.props;
     return (
-      <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}
-        >
-          <ScreenTitle>Decks</ScreenTitle>
-          <RobotIcon />
-        </ScrollView>
-
-        <ScreenInfo>You have 0 decks</ScreenInfo>
-      </View>
+      <ScreenContainer>
+        <ScreenContent>
+          <DeckList />
+        </ScreenContent>
+        <ScreenInfo>
+          You have {decksCount} deck{decksCount !== 1 ? 's' : ''}
+        </ScreenInfo>
+      </ScreenContainer>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
-  },
-  contentContainer: {
-    paddingTop: 30
-  }
+const stateToProps = state => ({
+  decksCount: Object.keys(state.decks).length
 });
+
+export default connect(stateToProps)(DecksScreen);
