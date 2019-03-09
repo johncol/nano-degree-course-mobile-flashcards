@@ -13,9 +13,15 @@ class StartQuizButton extends Component {
   };
 
   render() {
+    const { deckHasZeroCards } = this.props;
     return (
       <View style={styles.container}>
-        <Button title="Start quiz" onPress={this.navigateToQuizScreen} type="solid" />
+        <Button
+          title="Start quiz"
+          onPress={this.navigateToQuizScreen}
+          type="solid"
+          disabled={deckHasZeroCards}
+        />
       </View>
     );
   }
@@ -29,7 +35,8 @@ const styles = StyleSheet.create({
 });
 
 const stateToProps = (state, props) => ({
-  ...props
+  ...props,
+  deckHasZeroCards: props.deck.cards.length === 0
 });
 
 export default withNavigation(connect(stateToProps)(StartQuizButton));
