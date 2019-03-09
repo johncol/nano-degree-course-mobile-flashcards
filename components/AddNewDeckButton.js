@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { NavigationActions, withNavigation } from 'react-navigation';
+import { withNavigation } from 'react-navigation';
 
-import { RouteNames } from './../navigation/routes';
+import Navigator from './../navigation/navigator';
 
 class AddNewDeckButton extends Component {
   navigateToNewDeckScreen = () => {
-    this.props.navigation.dispatch(
-      NavigationActions.navigate({
-        routeName: RouteNames.NewDeck
-      })
-    );
+    Navigator.navigateToNewDeck(this);
   };
 
   render() {

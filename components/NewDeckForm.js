@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
+import { withNavigation } from 'react-navigation';
 
 import { DeckAction } from './../state/actions/deck';
+import Navigator from './../navigation/navigator';
 
 class NewDeckForm extends Component {
   state = {
@@ -19,6 +21,7 @@ class NewDeckForm extends Component {
     const { createDeck } = this.props;
     createDeck(deckName);
     this.setState({ deckName: '' });
+    Navigator.navigateToDecks(this);
   };
 
   render() {
@@ -63,7 +66,9 @@ const dispatchToProps = dispatch => ({
   }
 });
 
-export default connect(
-  undefined,
-  dispatchToProps
-)(NewDeckForm);
+export default withNavigation(
+  connect(
+    undefined,
+    dispatchToProps
+  )(NewDeckForm)
+);
