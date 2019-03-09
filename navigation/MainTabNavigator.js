@@ -6,13 +6,15 @@ import DecksScreen from './../screens/DecksScreen';
 import DeckScreen from './../screens/DeckScreen';
 import NewDeckScreen from './../screens/NewDeckScreen';
 import NewCardScreen from './../screens/NewCardScreen';
+import QuizScreen from './../screens/QuizScreen';
 
 import { RouteNames } from './../navigation/routes';
 
 const DecksStack = createStackNavigator({
   [RouteNames.Decks]: DecksScreen,
   [RouteNames.Deck]: DeckScreen,
-  [RouteNames.NewCard]: NewCardScreen
+  [RouteNames.NewCard]: NewCardScreen,
+  [RouteNames.Quiz]: QuizScreen
 });
 DecksStack.navigationOptions = {
   tabBarLabel: 'Decks',
