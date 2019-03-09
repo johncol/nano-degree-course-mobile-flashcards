@@ -2,8 +2,8 @@ import React from 'react';
 
 import { View, StyleSheet } from 'react-native';
 
-const DeckButtonsContainer = ({ children }) => {
-  return <View style={styles.container}>{children}</View>;
+const ButtonsContainer = ({ children, height }) => {
+  return <View style={[styles.container, height ? { height } : null]}>{children}</View>;
 };
 
 const styles = StyleSheet.create({
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default DeckButtonsContainer;
+export default ButtonsContainer;
