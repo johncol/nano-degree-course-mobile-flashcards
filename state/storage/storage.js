@@ -42,7 +42,7 @@ const Storage = {
   createDeck: name => {
     const deck = {
       id: Date.now(),
-      creationDate: new Date().toString(),
+      creationDate: new Date().toLocaleString(),
       cards: [],
       name
     };
@@ -60,13 +60,19 @@ const Storage = {
 
   addCardToDeck: (deckId, cardId) => {
     return AsyncStorage.getItem(DECKS_KEY)
-      .parse(JSON.parse)
+      .then(JSON.parse)
       .then(decks => {
         const deck = findDeck(decks, deckId);
         deck.cards.push(cardId);
         AsyncStorage.setItem(DECKS_KEY, JSON.stringify(decks));
         return deck;
       });
+  },
+
+  getData: () => {
+    const decks = AsyncStorage.getItem(DECKS_KEY).then(JSON.parse);
+    const cards = AsyncStorage.getItem(CARDS_KEY).then(JSON.parse);
+    return Promise.all([decks, cards]);
   }
 };
 
