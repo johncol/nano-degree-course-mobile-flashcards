@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import DeckList from './../components/DeckList';
+import DeleteAllDecksButton from './../components/DeleteAllDecksButton';
+import AddNewDeckButton from './../components/AddNewDeckButton';
 import ScreenInfo from './../components/ScreenInfo';
 import ScreenTitle from './../components/ScreenTitle';
 import ScreenContainer from '../components/ScreenContainer';
@@ -18,6 +20,9 @@ class DecksScreen extends React.Component {
       <ScreenContainer>
         <ScreenContent>
           <DeckList />
+
+          <AddNewDeckButton />
+          <DeleteAllDecksButton />
         </ScreenContent>
         <ScreenInfo>
           You have {decksCount} deck{decksCount !== 1 ? 's' : ''}
