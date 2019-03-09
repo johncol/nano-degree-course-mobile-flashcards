@@ -6,7 +6,7 @@ import ScreenTitle from './../components/ScreenTitle';
 import ScreenContainer from '../components/ScreenContainer';
 import ScreenContent from '../components/ScreenContent';
 import DeckName from '../components/DeckName';
-import DeckButtonsContainer from '../components/DeckButtonsContainer';
+import ButtonsContainer from '../components/ButtonsContainer';
 import AddNewCardButton from '../components/AddNewCardButton';
 import StartQuizButton from '../components/StartQuizButton';
 
@@ -21,10 +21,10 @@ class DeckScreen extends React.Component {
       <ScreenContainer>
         <ScreenContent>
           <DeckName>{deck.name}</DeckName>
-          <DeckButtonsContainer>
+          <ButtonsContainer>
             <AddNewCardButton deck={deck} />
             <StartQuizButton deck={deck} />
-          </DeckButtonsContainer>
+          </ButtonsContainer>
         </ScreenContent>
         <ScreenInfo>
           This deck has {cardsCount} card{cardsCount !== 1 ? 's' : ''}
