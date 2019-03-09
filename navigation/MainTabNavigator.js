@@ -1,43 +1,18 @@
 import React from 'react';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import DecksScreen from '../screens/DecksScreen';
-import NewDeckScreen from '../screens/NewDeckScreen';
+import TabBarIcon from './../components/TabBarIcon';
+import DecksScreen from './../screens/DecksScreen';
+import DeckScreen from './../screens/DeckScreen';
+import NewDeckScreen from './../screens/NewDeckScreen';
+import NewCardScreen from './../screens/NewCardScreen';
 
 import { RouteNames } from './../navigation/routes';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen
-});
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name="md-information-circle" />
-  )
-};
-
-const LinksStack = createStackNavigator({
-  Links: LinksScreen
-});
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-link" />
-};
-
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen
-});
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-options" />
-};
-
 const DecksStack = createStackNavigator({
-  [RouteNames.Decks]: DecksScreen
+  [RouteNames.Decks]: DecksScreen,
+  [RouteNames.Deck]: DeckScreen,
+  [RouteNames.NewCard]: NewCardScreen
 });
 DecksStack.navigationOptions = {
   tabBarLabel: 'Decks',
