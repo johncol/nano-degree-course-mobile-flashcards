@@ -51,7 +51,7 @@ NewDeckStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
-  NewDeckStack,
   DecksStack,
+  NewDeckStack,
   LinksStack
 });
