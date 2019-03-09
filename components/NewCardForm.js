@@ -20,7 +20,7 @@ class NewCardForm extends Component {
   createCard = () => {
     const { question, answer } = this.state;
     const { createCard, deck } = this.props;
-    createCard(deck, question, answer);
+    createCard(deck, question.trim(), answer.trim());
     this.setState({
       question: '',
       answer: ''
