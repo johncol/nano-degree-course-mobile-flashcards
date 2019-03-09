@@ -2,6 +2,10 @@ import { NavigationActions } from 'react-navigation';
 
 import { RouteNames } from './routes';
 
+const goBack = component => {
+  component.props.navigation.dispatch(NavigationActions.back());
+};
+
 const navigateToDecks = component => {
   navigateTo(component, RouteNames.Decks);
 };
@@ -32,6 +36,7 @@ const navigateTo = (component, route, params) => {
 };
 
 const Navigator = {
+  goBack,
   navigateToDecks,
   navigateToNewDeck,
   navigateToDeck,
