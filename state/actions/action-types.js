@@ -10,3 +10,7 @@ export const CardActionType = {
   DELETE_CARD: 'DELETE_CARD',
   UPDATE_CARD: 'UPDATE_CARD'
 };
+
+export const SharedActionType = {
+  LOAD_STORAGE_DATA: 'LOAD_STORAGE_DATA'
+};
