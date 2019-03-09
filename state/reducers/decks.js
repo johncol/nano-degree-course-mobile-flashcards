@@ -36,7 +36,7 @@ const createDeck = (state, action) => {
 const addCardToDeck = (state, action) => {
   const { deckId, cardId } = action.payload;
   const deck = { ...state[deckId] };
-  deck.decks.push(cardId);
+  deck.cards.push(cardId);
 
   return {
     ...state,

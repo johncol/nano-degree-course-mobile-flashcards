@@ -1,5 +1,6 @@
 import Storage from './../storage/storage';
 import { CardActionType } from './action-types';
+import { DeckAction } from './deck';
 
 const CardActionCreator = {
   createCard: card => ({
@@ -26,9 +27,10 @@ const CardActionCreator = {
   })
 };
 
-const createCard = (question, answer) => dispatch => {
+const createCard = (deck, question, answer) => dispatch => {
   return Storage.createCard(question, answer).then(card => {
     dispatch(CardActionCreator.createCard(card));
+    dispatch(DeckAction.addCardToDeck(deck.id, card.id));
   });
 };
 
