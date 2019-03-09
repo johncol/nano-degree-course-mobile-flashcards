@@ -3,16 +3,16 @@ import { DeckActionType } from '../actions/action-types';
 const deckReducer = (state = {}, action) => {
   switch (action.type) {
     case DeckActionType.CREATE_DECK:
-      return createDeck(state, actionType);
+      return createDeck(state, action);
 
     case DeckActionType.ADD_CARD_TO_DECK:
-      return addCardToDeck(state, actionType);
+      return addCardToDeck(state, action);
 
     case DeckActionType.DELETE_DECK:
-      return deleteDeck(state, actionType);
+      return deleteDeck(state, action);
 
     case DeckActionType.UPDATE_DECK:
-      return updateDeck(state, actionType);
+      return updateDeck(state, action);
 
     default:
       return state;

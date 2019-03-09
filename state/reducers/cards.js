@@ -3,13 +3,13 @@ import { CardActionType } from '../actions/action-types';
 const cardReducer = (state = {}, action) => {
   switch (action.type) {
     case CardActionType.CREATE_CARD:
-      return createCard(state, actionType);
+      return createCard(state, action);
 
     case CardActionType.DELETE_CARD:
-      return deleteCard(state, actionType);
+      return deleteCard(state, action);
 
     case CardActionType.UPDATE_CARD:
-      return updateCard(state, actionType);
+      return updateCard(state, action);
 
     default:
       return state;
