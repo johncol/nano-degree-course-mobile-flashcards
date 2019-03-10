@@ -4,6 +4,7 @@ import { Provider, connect } from 'react-redux';
 
 import AppNavigator from './navigation/AppNavigator';
 
+import { scheduleNotificationIfThereIsNotOneYet } from './notifications/notification';
 import { SharedAction } from './state/actions/shared';
 import store from './state/store';
 
@@ -28,6 +29,7 @@ export default class App extends React.Component {
 class ProvidedApp extends React.Component {
   componentDidMount() {
     this.props.loadInitialData();
+    scheduleNotificationIfThereIsNotOneYet();
   }
 
   render() {

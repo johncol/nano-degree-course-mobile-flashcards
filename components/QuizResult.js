@@ -8,11 +8,16 @@ import ButtonsContainer from './ButtonsContainer';
 import QuizScore from './QuizScore';
 import Navigator from './../navigation/navigator';
 import { DeckAction } from '../state/actions/deck';
+import {
+  cancelCurrentNotification,
+  scheduleNextNotification
+} from './../notifications/notification';
 
 class QuizResult extends React.Component {
   componentDidMount() {
     const { deckId, updateLastQuizDate } = this.props;
     updateLastQuizDate(deckId);
+    cancelCurrentNotification().then(scheduleNextNotification);
   }
 
   goToDeck = () => {
