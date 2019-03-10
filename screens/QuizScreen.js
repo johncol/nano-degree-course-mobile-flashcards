@@ -59,6 +59,7 @@ class QuizScreen extends React.Component {
               score={score}
               cardsCount={cardsCount}
               onRestart={this.restartQuiz}
+              deckId={deck.id}
             />
           )}
 

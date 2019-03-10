@@ -35,6 +35,21 @@ const findDeck = (decks, deckId) => {
   return filteredDecks[0];
 };
 
+const updateDeck = (deckId, operationOnDeck) => {
+  return AsyncStorage.getItem(DECKS_KEY)
+    .then(JSON.parse)
+    .then(decks => {
+      const deck = findDeck(decks, deckId);
+      operationOnDeck(deck);
+      AsyncStorage.setItem(DECKS_KEY, JSON.stringify(decks));
+      return deck;
+    });
+};
+
+const today = () => {
+  return new Date().toLocaleDateString();
+};
+
 const Storage = {
   init: () => {
     return Promise.all([
@@ -43,10 +58,17 @@ const Storage = {
     ]);
   },
 
+  getData: () => {
+    const decks = AsyncStorage.getItem(DECKS_KEY).then(JSON.parse);
+    const cards = AsyncStorage.getItem(CARDS_KEY).then(JSON.parse);
+    return Promise.all([decks, cards]);
+  },
+
   createDeck: name => {
     const deck = {
       id: Date.now(),
-      creationDate: new Date().toLocaleDateString(),
+      creationDate: today(),
+      lastQuizDate: null,
       cards: [],
       name
     };
@@ -63,20 +85,11 @@ const Storage = {
   },
 
   addCardToDeck: (deckId, cardId) => {
-    return AsyncStorage.getItem(DECKS_KEY)
-      .then(JSON.parse)
-      .then(decks => {
-        const deck = findDeck(decks, deckId);
-        deck.cards.push(cardId);
-        AsyncStorage.setItem(DECKS_KEY, JSON.stringify(decks));
-        return deck;
-      });
+    return updateDeck(deckId, deck => deck.cards.push(cardId));
   },
 
-  getData: () => {
-    const decks = AsyncStorage.getItem(DECKS_KEY).then(JSON.parse);
-    const cards = AsyncStorage.getItem(CARDS_KEY).then(JSON.parse);
-    return Promise.all([decks, cards]);
+  updateLastQuizDate: deckId => {
+    return updateDeck(deckId, deck => (deck.lastQuizDate = today()));
   },
 
   deleteAllDecks: () => {

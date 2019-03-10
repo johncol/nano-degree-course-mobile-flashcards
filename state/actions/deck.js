@@ -24,11 +24,10 @@ const DeckActionCreator = {
     }
   }),
 
-  updateDeck: (deckId, name) => ({
+  updateDeck: deck => ({
     type: DeckActionType.UPDATE_DECK,
     payload: {
-      deckId,
-      name
+      deck
     }
   }),
 
@@ -55,8 +54,15 @@ const deleteAllDecks = () => dispatch => {
   });
 };
 
+const updateLastQuizDate = deckId => dispatch => {
+  return Storage.updateLastQuizDate(deckId).then(deck => {
+    dispatch(DeckActionCreator.updateDeck(deck));
+  });
+};
+
 export const DeckAction = {
   createDeck,
   addCardToDeck,
-  deleteAllDecks
+  deleteAllDecks,
+  updateLastQuizDate
 };

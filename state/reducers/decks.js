@@ -55,15 +55,11 @@ const deleteDeck = (state, action) => {
 };
 
 const updateDeck = (state, action) => {
-  const { deckId, name } = action.payload;
-  const updatedDeck = {
-    ...state[deckId],
-    name
-  };
+  const { deck } = action.payload;
 
   return {
     ...state,
-    [deckId]: updatedDeck
+    [deck.id]: deck
   };
 };
 
